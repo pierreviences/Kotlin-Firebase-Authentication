@@ -57,6 +57,17 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    
+    private fun RegisterFirebase(email: String, password: String){
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this){
+                if(it.isSuccessful){
+                    Toast.makeText(this, "Register Berhasil", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                }else {
+                    Toast.makeText(this,"${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
 }
 
