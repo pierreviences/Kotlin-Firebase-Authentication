@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.latihanfirebase.LoginActivity
 import com.example.latihanfirebase.R
 import com.example.latihanfirebase.databinding.FragmentUserBinding
@@ -49,6 +50,14 @@ class UserFragment : Fragment() {
         if(user != null) {
             binding.edtEmail.setText(user.displayName)
             binding.edtEmail.setText(user.email)
+
+            if(user.isEmailVerified){
+                binding.iconVerify.visibility = View.VISIBLE
+                binding.iconNotVerify.visibility = View.GONE
+            }else {
+                binding.iconVerify.visibility = View.GONE
+                binding.iconNotVerify.visibility = View.VISIBLE
+            }
         }
 
         binding.cviUser.setOnClickListener {
@@ -59,6 +68,21 @@ class UserFragment : Fragment() {
             btnLogout()
         }
 
+        binding.btnVerify.setOnClickListener {
+            emailVerification()
+        }
+
+    }
+
+    private fun emailVerification(){
+        val user = auth.currentUser
+        user?.sendEmailVerification()?.addOnCompleteListener {
+            if(it.isSuccessful){
+                Toast.makeText(context, "Email Verifeid", Toast.LENGTH_SHORT).show()
+            }else {
+                Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun btnLogout(){

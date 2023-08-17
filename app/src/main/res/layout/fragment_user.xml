@@ -40,14 +40,42 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-
-
-            <EditText
-                android:id="@+id/edt_email"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
-                android:inputType="textEmailAddress" />
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/edt_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email@mail.com"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp">
+
+                    <ImageView
+                        android:id="@+id/icon_verify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/baseline_verified_24" />
+
+                    <ImageView
+                        android:id="@+id/icon_notVerify"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/baseline_not_verified_24" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
 
             <EditText
                 android:id="@+id/edt_name"
@@ -63,6 +91,14 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/black"
                 android:text="Logout" />
+            <Button
+                android:id="@+id/btn_verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/teal_700"
+                android:text="Email Verification" />
+
 
         </LinearLayout>
 
