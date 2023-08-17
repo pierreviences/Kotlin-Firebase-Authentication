@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.latihanfirebase.ChangeEmailActivity
 import com.example.latihanfirebase.LoginActivity
 import com.example.latihanfirebase.R
 import com.example.latihanfirebase.databinding.FragmentUserBinding
@@ -78,6 +79,15 @@ class UserFragment : Fragment() {
             changePass()
         }
 
+        binding.btnChangeEmail.setOnClickListener {
+            changeEmail()
+        }
+
+    }
+
+    private fun changeEmail() {
+        val intent = Intent(context, ChangeEmailActivity::class.java)
+        startActivity(intent)
     }
 
     private fun changePass(){
