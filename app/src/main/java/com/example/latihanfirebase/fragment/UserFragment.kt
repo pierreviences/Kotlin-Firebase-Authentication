@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.latihanfirebase.ChangeEmailActivity
+import com.example.latihanfirebase.CodeScannerActivity
 import com.example.latihanfirebase.LoginActivity
 import com.example.latihanfirebase.R
 import com.example.latihanfirebase.databinding.FragmentUserBinding
@@ -83,6 +84,14 @@ class UserFragment : Fragment() {
             changeEmail()
         }
 
+        binding.btnScanQR.setOnClickListener {
+            scanQRCode()
+        }
+    }
+
+    private fun scanQRCode() {
+        val intent = Intent(context, CodeScannerActivity::class.java)
+        startActivity(intent)
     }
 
     private fun changeEmail() {
