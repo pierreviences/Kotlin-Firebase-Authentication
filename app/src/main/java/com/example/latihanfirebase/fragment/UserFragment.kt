@@ -173,7 +173,17 @@ class UserFragment : Fragment() {
         }
     }
 
-    
+    private fun successLogout() {
+        auth = FirebaseAuth.getInstance()
+        auth.signOut()
+
+        val intent = Intent(context, LoginActivity::class.java)
+        startActivity(intent)
+        activity?.finish()
+
+        Toast.makeText(activity, "Silahkan Login Kembali", Toast.LENGTH_SHORT).show()
+    }
+
     private fun emailVerification(){
         val user = auth.currentUser
         user?.sendEmailVerification()?.addOnCompleteListener {
