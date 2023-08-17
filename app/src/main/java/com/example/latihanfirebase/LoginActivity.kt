@@ -23,6 +23,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.forgotPassword.setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnLogin.setOnClickListener {
             val email = binding.edtEmailLogin.text.toString()
             val password = binding.edtPasswordLogin.text.toString()
