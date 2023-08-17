@@ -1,8 +1,10 @@
 package com.example.latihanfirebase
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.example.latihanfirebase.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
@@ -44,7 +46,17 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // validasi panjang password
+            if(password.length < 6){
+                binding.edtPasswordRegister.error = "Password minimal 6 karakter"
+                binding.edtPasswordRegister.requestFocus()
+                return@setOnClickListener
+            }
 
+            RegisterFirebase(email,password)
         }
     }
+
+    
 }
+
