@@ -54,5 +54,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("com.squareup.picasso:picasso:2.8")
+    implementation("com.github.yuriy-budiyev:code-scanner:2.3.2")
 
 }
